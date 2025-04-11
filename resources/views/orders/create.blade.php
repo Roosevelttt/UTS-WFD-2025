@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="max-w-2xl mx-auto">
-    <h1 class="text-2xl font-bold mb-6">Form Pemesanan Lapangan</h1>
+    <h1 class="text-2xl font-bold mb-6">Pemesanan Lapangan</h1>
     
     <form action="{{ route('orders.store') }}" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         @csrf
@@ -13,7 +13,7 @@
             <label class="block text-gray-700 text-sm font-bold mb-2" for="nama_pemesan">
                 Nama Pemesan
             </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('nama_pemesan') border-red-500 @enderror" 
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                 id="nama_pemesan" 
                 type="text" 
                 name="nama_pemesan" 
@@ -28,7 +28,7 @@
             <label class="block text-gray-700 text-sm font-bold mb-2" for="wa_pemesan">
                 Nomor WhatsApp
             </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('wa_pemesan') border-red-500 @enderror" 
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                 id="wa_pemesan" 
                 type="text" 
                 name="wa_pemesan" 
@@ -43,7 +43,7 @@
             <label class="block text-gray-700 text-sm font-bold mb-2" for="tanggal">
                 Tanggal Booking
             </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('tanggal') border-red-500 @enderror" 
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                 id="tanggal" 
                 type="date" 
                 name="tanggal" 
@@ -58,7 +58,7 @@
             <label class="block text-gray-700 text-sm font-bold mb-2" for="schedule_id">
                 Jadwal Lapangan
             </label>
-            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('schedule_id') border-red-500 @enderror" 
+            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                 id="schedule_id" 
                 name="schedule_id">
                 <option value="">Pilih Jadwal</option>

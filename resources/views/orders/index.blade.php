@@ -15,7 +15,7 @@
         <form action="{{ route('orders.index') }}" method="GET" class="mb-6">
             <div class="flex flex-wrap -mx-3 mb-2">
                 <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="search">
+                    <label class="block tracking-wide text-gray-700 text-xs font-bold mb-2" for="search">
                         Nama Pemesan
                     </label>
                     <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
@@ -26,7 +26,7 @@
                         placeholder="Cari berdasarkan nama">
                 </div>
                 <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="tanggal">
+                    <label class="block tracking-wide text-gray-700 text-xs font-bold mb-2" for="tanggal">
                         Tanggal
                     </label>
                     <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
@@ -47,32 +47,36 @@
         </form>
         
         <div class="overflow-x-auto">
-            <table class="min-w-full bg-white">
-                <thead class="bg-gray-100">
+            <table class="min-w-full bg-white border border-gray-200">
+                <thead class="bg-gray-500">
                     <tr>
-                        <th class="px-6 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        <th class="px-6 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-white tracking-wider">
+                            No
+                        </th>
+                        <th class="px-6 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-white tracking-wider">
                             Nama Pemesan
                         </th>
-                        <th class="px-6 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        <th class="px-6 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-white tracking-wider">
                             Nomor WhatsApp
                         </th>
-                        <th class="px-6 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        <th class="px-6 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-white tracking-wider">
                             Tanggal Booking
                         </th>
-                        <th class="px-6 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        <th class="px-6 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-white tracking-wider">
                             Nomor Lapangan
                         </th>
-                        <th class="px-6 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        <th class="px-6 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-white tracking-wider">
                             Jam Pemakaian
                         </th>
-                        <th class="px-6 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        <th class="px-6 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-white tracking-wider">
                             Tindakan
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($orders as $order)
+                    @forelse ($orders as $index => $order)
                     <tr>
+                        <td class="px-6 py-4 whitespace-nowrap border-b border-gray-200">{{ $index + 1 }}</td>
                         <td class="px-6 py-4 whitespace-nowrap border-b border-gray-200">
                             {{ $order->nama_pemesan }}
                         </td>
@@ -80,7 +84,7 @@
                             {{ $order->wa_pemesan }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap border-b border-gray-200">
-                            {{ \Carbon\Carbon::parse($order->tanggal)->format('d-m-Y') }}
+                            {{ \Carbon\Carbon::parse($order->tanggal)->format('d F Y') }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap border-b border-gray-200">
                             {{ $order->schedule->nomor_lapangan }}
@@ -94,7 +98,7 @@
                                 <form action="{{ route('orders.destroy', $order->id) }}" method="POST" class="inline" onsubmit="return confirm('Apakah Anda yakin ingin membatalkan pemesanan ini?');">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-3 rounded ml-2">Hapus</button>
+                                    <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-3 rounded">Hapus</button>
                                 </form>
                             </div>
                         </td>
