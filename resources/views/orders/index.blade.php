@@ -46,8 +46,8 @@
             </div>
         </form>
         
-        <div class="overflow-x-auto">
-            <table class="min-w-full bg-white border border-gray-200">
+        <div class="overflow-x-auto rounded-md shadow-xs">
+            <table class="min-w-full bg-white"> 
                 <thead class="bg-gray-500">
                     <tr>
                         <th class="px-6 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-white tracking-wider">
